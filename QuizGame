@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class QuizGame {
+    private static final int NUM_QUESTIONS = 5;
+    private static final String[][] QUESTIONS = {
+        {"Who is known as the “Father of Modern Physics?", "Albert Einstein"},
+        {"What is the currency of Japan?" , "Japanese Yen"},
+        {"What is the largest planet in our solar system?", "Jupiter"},
+        {"Which country is known as the “Land of the Rising Sun?", "Japan"},
+        {"What is the name the longest river in the world?", "The Nile"}
+    };
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int score = 0;
+
+        for (int i = 0; i < NUM_QUESTIONS; i++) {
+            System.out.println("Question " + (i + 1) + ": " + QUESTIONS[i][0]);
+            String answer = input.nextLine();
+
+            if (answer.equalsIgnoreCase(QUESTIONS[i][1])) {
+                System.out.println("Correct!");
+                score++;
+            }
+            else {
+                System.out.println("Incorrect. The correct answer is " + QUESTIONS[i][1]);
+            }
+        }
+
+        System.out.println("Your final score is " + score + " out of " + NUM_QUESTIONS);
+    }
+}
+
